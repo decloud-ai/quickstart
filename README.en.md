@@ -19,7 +19,7 @@ behind one OpenAI-compatible protocol; existing code changes only the base URL a
 
 ## Quickstart
 
-**① In code (OpenAI SDK)** — change two things:
+**① In code (OpenAI SDK)** — install once, then change two things:
 
 ```bash
 pip install openai
