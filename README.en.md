@@ -29,7 +29,7 @@ client = OpenAI(
     api_key="dcld-sk-...",                  # ← and this
 )
 r = client.chat.completions.create(
-    model="deepseek/deepseek-v4-pro",       # full ID: vendor/model (check the model page)
+    model="deepseek/deepseek-chat",       # full ID: vendor/model (check the model page)
     messages=[{"role": "user", "content": "hello"}],
 )
 print(r.choices[0].message.content)
@@ -51,7 +51,7 @@ print(r.choices[0].message.content)
 **③ Claude Code (CLI)**:
 
 ```bash
-export ANTHROPIC_BASE_URL="https://macdecloud.com?utm_source=gh"   # note: no /v1
+export ANTHROPIC_BASE_URL="https://macdecloud.com"   # note: no /v1
 export ANTHROPIC_AUTH_TOKEN="dcld-sk-..."
 export ANTHROPIC_MODEL="<full model ID>"
 ```
