@@ -21,6 +21,10 @@ behind one OpenAI-compatible protocol; existing code changes only the base URL a
 
 **① In code (OpenAI SDK)** — change two things:
 
+```bash
+pip install openai
+```
+
 ```python
 from openai import OpenAI
 
