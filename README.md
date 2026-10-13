@@ -20,7 +20,7 @@
 
 ## 快速开始
 
-**① 写代码(OpenAI SDK)** —— 只改两处:
+**① 写代码(OpenAI SDK)** —— 先装一次,再改两处:
 
 ```bash
 pip install openai
