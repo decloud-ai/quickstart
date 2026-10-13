@@ -30,7 +30,7 @@ client = OpenAI(
     api_key="dcld-sk-...",                  # ← 和这里
 )
 r = client.chat.completions.create(
-    model="deepseek/deepseek-v4-pro",       # 完整 ID:厂商标识/模型名(以模型页为准)
+    model="deepseek/deepseek-chat",       # 完整 ID:厂商标识/模型名(以模型页为准)
     messages=[{"role": "user", "content": "hello"}],
 )
 print(r.choices[0].message.content)
@@ -52,7 +52,7 @@ print(r.choices[0].message.content)
 **③ 命令行 Claude Code**:
 
 ```bash
-export ANTHROPIC_BASE_URL="https://macdecloud.com?utm_source=gh"   # 注意:不带 /v1
+export ANTHROPIC_BASE_URL="https://macdecloud.com"   # 注意:不带 /v1
 export ANTHROPIC_AUTH_TOKEN="dcld-sk-..."
 export ANTHROPIC_MODEL="<完整模型 ID>"
 ```
