@@ -1,3 +1,5 @@
+<p align="right"><strong>English</strong> | <a href="README.md">中文</a></p>
+
 # deCloud · Quickstart
 
 **One API key to every frontier AI model** — chat, image, video, speech, transcription, embeddings and rerank
@@ -15,23 +17,7 @@ behind one OpenAI-compatible protocol; existing code changes only the base URL a
 
 ---
 
-## What it solves
-
-| What you run into | How deCloud handles it |
-|---|---|
-| Retest on every switch | **Decoupled from models** — write the integration once; model churn stops being your problem |
-| Every API is different | **One unified protocol** — OpenAI-compatible + Anthropic + Responses |
-| A new key per vendor | **One aggregated catalog** — direct vendors and aggregator sources in one place, each upstream labeled |
-| Month-end across consoles | **Usage and access together** — permissions, usage and per-call detail in one place |
-
-```text
-your client (Claude Code / Codex / Cherry Studio / your own code)
-      │  base_url → https://macdecloud.com/v1
-      ▼
-   deCloud ── /v1/chat/completions · /v1/messages · /v1/responses ──▶ upstream model vendors
-```
-
-## 30-second setup
+## Quickstart
 
 **① In code (OpenAI SDK)** — change two things:
 
@@ -49,6 +35,7 @@ r = client.chat.completions.create(
 print(r.choices[0].message.content)
 ```
 
+## Client setup
 **② GUI clients** (NextChat / Chatbox / LobeChat / Open WebUI / Cherry Studio …) — add a new provider:
 
 | Field | Value |
@@ -58,7 +45,8 @@ print(r.choices[0].message.content)
 | API key | your `dcld-sk-…` |
 | Model | the full ID |
 
-> ⚠️ **Don't edit the built-in "OpenAI" provider** — its URL is pinned to `api.openai.com` and you'll get "incorrect API key". **Add** a custom provider instead.
+> [!WARNING]
+> **Don't edit the built-in "OpenAI" provider** — its URL is pinned to `api.openai.com` and you'll get "incorrect API key". **Add** a custom provider instead.
 
 **③ Claude Code (CLI)**:
 
@@ -83,23 +71,8 @@ export ANTHROPIC_MODEL="<full model ID>"
 | Key scope | each key can be limited to a set of models; the model list is filtered by key permissions |
 | Usage | per-call usage in the console, **exportable as a table** |
 
-> ⚠️ Video is **asynchronous**: submit returns `202` + a `polling_url`; the endpoint is `/v1/videos` (**not** `/v1/video/generations`).
-
-## Billing
-
-1. **Prepaid usage** — top up once, pay per token; no monthly tiers;
-2. **Priced per token** — input and output priced separately; unit prices are on each model page;
-3. **Verifiable detail** — per-call usage in the console, exportable as a table;
-4. **Failures are not charged** — requests that **fail upstream** are not billed;
-5. **Zero balance returns 402** — an explicit error, not a silent failure.
-
-Worth spelling out:
-
-- chat is **settled by usage**, not pre-authorized up to a token cap — so a **balance can go negative**;
-- video is the opposite: **reserved** on submit, **settled** on completion; an insufficient reserve is rejected (402);
-- the boundary of point 4 is "**failed upstream**" — **an interrupted request is not automatically free**;
-- balance is a **prepaid accounting unit**: not withdrawable, not transferable;
-- trial credits are available on request.
+> [!WARNING]
+> Video is **asynchronous**: submit returns `202` + a `polling_url`; the endpoint is `/v1/videos` (**not** `/v1/video/generations`).
 
 ## Errors
 
@@ -119,11 +92,43 @@ Every status code has its own docs page — the right-hand column links straight
 
 > More: **https://macdecloud.com/docs/errors?utm_source=gh**
 
+## Billing
+
+1. **Prepaid usage** — top up once, pay per token; no monthly tiers;
+2. **Priced per token** — input and output priced separately; unit prices are on each model page;
+3. **Verifiable detail** — per-call usage in the console, exportable as a table;
+4. **Failures are not charged** — requests that **fail upstream** are not billed;
+5. **Zero balance returns 402** — an explicit error, not a silent failure.
+
+Worth spelling out:
+
+- chat is **settled by usage**, not pre-authorized up to a token cap — so a **balance can go negative**;
+- video is the opposite: **reserved** on submit, **settled** on completion; an insufficient reserve is rejected (402);
+- the boundary of point 4 is "**failed upstream**" — **an interrupted request is not automatically free**;
+- balance is a **prepaid accounting unit**: not withdrawable, not transferable;
+- trial credits are available on request.
+
 ## Support
 
 - 📖 Docs: https://macdecloud.com/docs?utm_source=gh
 - 💬 Telegram support: https://t.me/DeCloud_CS
 - 🐛 Open an issue in this repository
+
+## Why deCloud
+
+| What you run into | How deCloud handles it |
+|---|---|
+| Retest on every switch | **Decoupled from models** — write the integration once; model churn stops being your problem |
+| Every API is different | **One unified protocol** — OpenAI-compatible + Anthropic + Responses |
+| A new key per vendor | **One aggregated catalog** — direct vendors and aggregator sources in one place, each upstream labeled |
+| Month-end across consoles | **Usage and access together** — permissions, usage and per-call detail in one place |
+
+```text
+your client (Claude Code / Codex / Cherry Studio / your own code)
+      │  base_url → https://macdecloud.com/v1
+      ▼
+   deCloud ── /v1/chat/completions · /v1/messages · /v1/responses ──▶ upstream model vendors
+```
 
 ## License
 

@@ -1,3 +1,5 @@
+<p align="right"><a href="README.en.md">English</a> | <strong>简体中文</strong></p>
+
 # deCloud · 快速接入
 
 **一个 API Key 调用全球顶级 AI 模型** —— 对话、图像、视频、语音、转写、嵌入、重排七类模型,
@@ -16,23 +18,7 @@
 
 ---
 
-## 它解决的四件事
-
-| 你会遇到的 | deCloud 的做法 |
-|---|---|
-| 换个模型就要重测 | **接入与模型解耦** —— 接入写一次,之后模型换代与它无关 |
-| 各家接口都不一样 | **统一协议** —— OpenAI 兼容 + Anthropic + Responses |
-| 每接一家就多一个 Key | **目录聚合** —— 直连与聚合目录收在一处,来源逐个标注 |
-| 月底对账要登多个后台 | **权限与用量合一** —— 权限、用量、明细逐笔可核 |
-
-```text
-客户端(Claude Code / Codex / Cherry Studio / 你的代码)
-      │  base_url 指向 https://macdecloud.com/v1
-      ▼
-   deCloud ── /v1/chat/completions · /v1/messages · /v1/responses ──▶ 上游模型厂商
-```
-
-## 30 秒接入
+## 快速开始
 
 **① 写代码(OpenAI SDK)** —— 只改两处:
 
@@ -50,6 +36,7 @@ r = client.chat.completions.create(
 print(r.choices[0].message.content)
 ```
 
+## 客户端怎么填
 **② 图形客户端**(NextChat / Chatbox / LobeChat / Open WebUI / Cherry Studio 等)—— 新加一个服务商:
 
 | 字段 | 填什么 |
@@ -59,7 +46,8 @@ print(r.choices[0].message.content)
 | API Key | 你的 `dcld-sk-…` |
 | 模型名 | 完整 ID |
 
-> ⚠️ **别改客户端自带的「OpenAI」那一项** —— 它的地址固定是 `api.openai.com`,会报"密钥不正确"。要**新加**一个自定义服务商。
+> [!WARNING]
+> **别改客户端自带的「OpenAI」那一项** —— 它的地址固定是 `api.openai.com`,会报"密钥不正确"。要**新加**一个自定义服务商。
 
 **③ 命令行 Claude Code**:
 
@@ -84,23 +72,8 @@ export ANTHROPIC_MODEL="<完整模型 ID>"
 | Key 范围 | 每把 Key 可限定可用模型,模型列表随 Key 权限过滤 |
 | 用量 | 控制台用量页逐笔可核,**支持表格导出** |
 
-> ⚠️ 视频是**异步**的:提交返回 `202` + `polling_url`;端点是 `/v1/videos`(**不是** `/v1/video/generations`)。
-
-## 计费怎么算
-
-1. **统一按量** —— 充一次余额,按 token 用量扣,无包月档位;
-2. **按 token 计价** —— 输入输出分别计价,单价见模型页;
-3. **明细可核** —— 控制台用量页逐笔可核,支持表格导出;
-4. **失败不计费** —— **上游出错导致的失败**不扣余额;
-5. **余额为 0 报 402** —— 直接报错,不会静默失败。
-
-几点说清:
-
-- 聊天**按用量结算**,不是按 token 上限预扣 —— 所以**余额可能出现负数**;
-- 视频**相反**:提交时**预留**、完成才**结算**,预留不够直接拒(402);
-- 第 4 条的边界是「**上游出错导致的失败**」—— **请求中断不能一律解释为免费**;
-- 余额是**预付款记账单位**,不可提现、不可转让;
-- 可申请免费额度。
+> [!WARNING]
+> 视频是**异步**的:提交返回 `202` + `polling_url`;端点是 `/v1/videos`(**不是** `/v1/video/generations`)。
 
 ## 报错对照
 
@@ -120,11 +93,43 @@ export ANTHROPIC_MODEL="<完整模型 ID>"
 
 > 更多说明:**https://macdecloud.com/docs/errors?utm_source=gh**
 
+## 计费怎么算
+
+1. **统一按量** —— 充一次余额,按 token 用量扣,无包月档位;
+2. **按 token 计价** —— 输入输出分别计价,单价见模型页;
+3. **明细可核** —— 控制台用量页逐笔可核,支持表格导出;
+4. **失败不计费** —— **上游出错导致的失败**不扣余额;
+5. **余额为 0 报 402** —— 直接报错,不会静默失败。
+
+几点说清:
+
+- 聊天**按用量结算**,不是按 token 上限预扣 —— 所以**余额可能出现负数**;
+- 视频**相反**:提交时**预留**、完成才**结算**,预留不够直接拒(402);
+- 第 4 条的边界是「**上游出错导致的失败**」—— **请求中断不能一律解释为免费**;
+- 余额是**预付款记账单位**,不可提现、不可转让;
+- 可申请免费额度。
+
 ## 支持
 
 - 📖 文档:https://macdecloud.com/docs?utm_source=gh
 - 💬 Telegram 客服
 - 🐛 问题提到本仓 Issues
+
+## 为什么用它
+
+| 你会遇到的 | deCloud 的做法 |
+|---|---|
+| 换个模型就要重测 | **接入与模型解耦** —— 接入写一次,之后模型换代与它无关 |
+| 各家接口都不一样 | **统一协议** —— OpenAI 兼容 + Anthropic + Responses |
+| 每接一家就多一个 Key | **目录聚合** —— 直连与聚合目录收在一处,来源逐个标注 |
+| 月底对账要登多个后台 | **权限与用量合一** —— 权限、用量、明细逐笔可核 |
+
+```text
+客户端(Claude Code / Codex / Cherry Studio / 你的代码)
+      │  base_url 指向 https://macdecloud.com/v1
+      ▼
+   deCloud ── /v1/chat/completions · /v1/messages · /v1/responses ──▶ 上游模型厂商
+```
 
 ## License
 
