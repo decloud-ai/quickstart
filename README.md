@@ -22,6 +22,10 @@
 
 **① 写代码(OpenAI SDK)** —— 只改两处:
 
+```bash
+pip install openai
+```
+
 ```python
 from openai import OpenAI
 
