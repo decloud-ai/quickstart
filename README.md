@@ -139,7 +139,7 @@ export ANTHROPIC_MODEL="<完整模型 ID>"
 
 [![Get started](https://img.shields.io/badge/Get%20started-245e43?style=for-the-badge&logo=googlechrome&logoColor=white)](https://macdecloud.com/?utm_source=gh) [![All docs](https://img.shields.io/badge/All%20docs-192b25?style=for-the-badge&logo=github&logoColor=white)](https://github.com/decloud-ai/.github/blob/main/DOCS.md) [![Email](https://img.shields.io/badge/Email-245e43?style=for-the-badge&logo=gmail&logoColor=white)](mailto:globaldecloud@gmail.com)
 
-注册 → 拿一把 Key → 改两处地址 → 跑通第一次调用。
+连接即登录 → 创建 API Key → 填进工具 → 跑通第一次调用。
 
 ## License
 
