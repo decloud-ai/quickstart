@@ -12,6 +12,8 @@
 
 📖 完整文档:**https://macdecloud.com/docs** · 🌐 官网:https://macdecloud.com
 
+[English](README.en.md) | 简体中文
+
 ---
 
 ## 它解决的四件事
