@@ -131,6 +131,12 @@ export ANTHROPIC_MODEL="<完整模型 ID>"
    deCloud ── /v1/chat/completions · /v1/messages · /v1/responses ──▶ 上游模型厂商
 ```
 
+## 开始使用
+
+[![Get started](https://img.shields.io/badge/Get%20started-macdecloud.com-245e43?style=for-the-badge)](https://macdecloud.com/?utm_source=gh) [![All docs](https://img.shields.io/badge/Docs-All%20pages-192b25?style=for-the-badge&logo=github)](https://github.com/decloud-ai/.github/blob/main/DOCS.md)
+
+注册 → 拿一把 Key → 改两处地址 → 跑通第一次调用。
+
 ## License
 
 MIT —— 见 [LICENSE](LICENSE)。示例代码可自由取用。

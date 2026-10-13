@@ -130,6 +130,12 @@ your client (Claude Code / Codex / Cherry Studio / your own code)
    deCloud ── /v1/chat/completions · /v1/messages · /v1/responses ──▶ upstream model vendors
 ```
 
+## Get started
+
+[![Get started](https://img.shields.io/badge/Get%20started-macdecloud.com-245e43?style=for-the-badge)](https://macdecloud.com/?utm_source=gh) [![All docs](https://img.shields.io/badge/Docs-All%20pages-192b25?style=for-the-badge&logo=github)](https://github.com/decloud-ai/.github/blob/main/DOCS.md)
+
+Sign up → grab a key → change two things → make your first call.
+
 ## License
 
 MIT — see [LICENSE](LICENSE). Sample code is free to reuse.
