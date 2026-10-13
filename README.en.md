@@ -9,7 +9,7 @@ behind one OpenAI-compatible protocol; existing code changes only the base URL a
 ![Anthropic Messages](https://img.shields.io/badge/Anthropic-Messages-245e43?style=flat-square)
 ![OpenAI Responses](https://img.shields.io/badge/OpenAI-Responses-245e43?style=flat-square)
 
-📖 Docs: **https://macdecloud.com/docs** · 🌐 Website: https://macdecloud.com
+📖 Docs: **https://macdecloud.com/docs?utm_source=gh** · 🌐 Website: https://macdecloud.com?utm_source=gh
 
 [English](README.en.md) | [简体中文](README.md)
 
@@ -63,7 +63,7 @@ print(r.choices[0].message.content)
 **③ Claude Code (CLI)**:
 
 ```bash
-export ANTHROPIC_BASE_URL="https://macdecloud.com"   # note: no /v1
+export ANTHROPIC_BASE_URL="https://macdecloud.com?utm_source=gh"   # note: no /v1
 export ANTHROPIC_AUTH_TOKEN="dcld-sk-..."
 export ANTHROPIC_MODEL="<full model ID>"
 ```
@@ -107,21 +107,21 @@ Every status code has its own docs page — the right-hand column links straight
 
 | Response | What it means / what to do | Docs |
 |---|---|---|
-| `401` | Invalid key — check for extra spaces, a full `dcld-sk-` prefix, or a rotated key | [401](https://macdecloud.com/docs/errors/401-invalid-key) |
-| `402` | Insufficient balance — even free models are rejected at zero balance | [402](https://macdecloud.com/docs/errors/402-insufficient-balance) |
-| `403` | Model not enabled for this key / quota exhausted — try another model | [not enabled](https://macdecloud.com/docs/errors/403-model-not-allowed) · [quota](https://macdecloud.com/docs/errors/403-quota-exhausted) |
-| `404` | Model name does not exist — use the **full ID** (with the vendor prefix); a short name will 404 | [404](https://macdecloud.com/docs/errors/404-model-not-found) |
-| `429` | Too many requests / upstream rate limit — retry in a few seconds, lower concurrency | [429](https://macdecloud.com/docs/errors/429-rate-limited) |
-| `400` + `upstream provider rejected` | The model does not support this kind of request — usually missing tool calling | [tool calling](https://macdecloud.com/docs/errors/400-tools-not-supported) |
-| `400` endpoint mismatch | An image / video model was sent to the wrong endpoint | [mismatch](https://macdecloud.com/docs/errors/400-model-endpoint-mismatch) |
-| `502` / `504` | Upstream-side problem — retry in a few seconds; contact support if it persists | [502](https://macdecloud.com/docs/errors/502-upstream-model-missing) · [504](https://macdecloud.com/docs/errors/504-upstream-timeout) |
-| `200` with empty content | The request went through but no answer came back | [empty content](https://macdecloud.com/docs/errors/200-empty-content) |
+| `401` | Invalid key — check for extra spaces, a full `dcld-sk-` prefix, or a rotated key | [401](https://macdecloud.com/docs/errors/401-invalid-key?utm_source=gh) |
+| `402` | Insufficient balance — even free models are rejected at zero balance | [402](https://macdecloud.com/docs/errors/402-insufficient-balance?utm_source=gh) |
+| `403` | Model not enabled for this key / quota exhausted — try another model | [not enabled](https://macdecloud.com/docs/errors/403-model-not-allowed?utm_source=gh) · [quota](https://macdecloud.com/docs/errors/403-quota-exhausted?utm_source=gh) |
+| `404` | Model name does not exist — use the **full ID** (with the vendor prefix); a short name will 404 | [404](https://macdecloud.com/docs/errors/404-model-not-found?utm_source=gh) |
+| `429` | Too many requests / upstream rate limit — retry in a few seconds, lower concurrency | [429](https://macdecloud.com/docs/errors/429-rate-limited?utm_source=gh) |
+| `400` + `upstream provider rejected` | The model does not support this kind of request — usually missing tool calling | [tool calling](https://macdecloud.com/docs/errors/400-tools-not-supported?utm_source=gh) |
+| `400` endpoint mismatch | An image / video model was sent to the wrong endpoint | [mismatch](https://macdecloud.com/docs/errors/400-model-endpoint-mismatch?utm_source=gh) |
+| `502` / `504` | Upstream-side problem — retry in a few seconds; contact support if it persists | [502](https://macdecloud.com/docs/errors/502-upstream-model-missing?utm_source=gh) · [504](https://macdecloud.com/docs/errors/504-upstream-timeout?utm_source=gh) |
+| `200` with empty content | The request went through but no answer came back | [empty content](https://macdecloud.com/docs/errors/200-empty-content?utm_source=gh) |
 
-> More: **https://macdecloud.com/docs/errors**
+> More: **https://macdecloud.com/docs/errors?utm_source=gh**
 
 ## Support
 
-- 📖 Docs: https://macdecloud.com/docs
+- 📖 Docs: https://macdecloud.com/docs?utm_source=gh
 - 💬 Telegram support: https://t.me/DeCloud_CS
 - 🐛 Open an issue in this repository
 
