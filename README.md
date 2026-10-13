@@ -10,7 +10,7 @@
 ![Anthropic Messages](https://img.shields.io/badge/Anthropic-Messages-245e43?style=flat-square)
 ![OpenAI Responses](https://img.shields.io/badge/OpenAI-Responses-245e43?style=flat-square)
 
-📖 完整文档:**https://macdecloud.com/docs** · 🌐 官网:https://macdecloud.com
+📖 完整文档:**https://macdecloud.com/docs?utm_source=gh** · 🌐 官网:https://macdecloud.com?utm_source=gh
 
 [English](README.en.md) | 简体中文
 
@@ -64,7 +64,7 @@ print(r.choices[0].message.content)
 **③ 命令行 Claude Code**:
 
 ```bash
-export ANTHROPIC_BASE_URL="https://macdecloud.com"   # 注意:不带 /v1
+export ANTHROPIC_BASE_URL="https://macdecloud.com?utm_source=gh"   # 注意:不带 /v1
 export ANTHROPIC_AUTH_TOKEN="dcld-sk-..."
 export ANTHROPIC_MODEL="<完整模型 ID>"
 ```
@@ -108,21 +108,21 @@ export ANTHROPIC_MODEL="<完整模型 ID>"
 
 | 返回 | 什么意思 / 怎么办 | 文档 |
 |---|---|---|
-| `401` | Key 无效 —— 检查多空格、`dcld-sk-` 前缀是否完整、是否已被轮换 | [401](https://macdecloud.com/docs/errors/401-invalid-key) |
-| `402` | 余额不足 —— 余额为 0 时免费模型也会被拒 | [402](https://macdecloud.com/docs/errors/402-insufficient-balance) |
-| `403` | 该模型未开通 / 额度用尽 —— 换个模型 | [模型未开通](https://macdecloud.com/docs/errors/403-model-not-allowed) · [额度用尽](https://macdecloud.com/docs/errors/403-quota-exhausted) |
-| `404` | 模型名不存在 —— 要写**完整 ID**(带厂商前缀),只写简称会 404 | [404](https://macdecloud.com/docs/errors/404-model-not-found) |
-| `429` | 请求太频繁 / 上游限流 —— 等几秒重试,降低并发 | [429](https://macdecloud.com/docs/errors/429-rate-limited) |
-| `400` + `upstream provider rejected` | 该模型不支持这类请求 —— 多半是不支持工具调用 | [工具调用](https://macdecloud.com/docs/errors/400-tools-not-supported) |
-| `400` 端点不匹配 | 图像 / 视频类模型发错了端点 | [端点不匹配](https://macdecloud.com/docs/errors/400-model-endpoint-mismatch) |
-| `502` / `504` | 上游侧的问题 —— 隔几秒重试;持续出现请联系客服 | [502](https://macdecloud.com/docs/errors/502-upstream-model-missing) · [504](https://macdecloud.com/docs/errors/504-upstream-timeout) |
-| 返回 `200` 但内容为空 | 请求通了、答案没出来 | [200 空内容](https://macdecloud.com/docs/errors/200-empty-content) |
+| `401` | Key 无效 —— 检查多空格、`dcld-sk-` 前缀是否完整、是否已被轮换 | [401](https://macdecloud.com/docs/errors/401-invalid-key?utm_source=gh) |
+| `402` | 余额不足 —— 余额为 0 时免费模型也会被拒 | [402](https://macdecloud.com/docs/errors/402-insufficient-balance?utm_source=gh) |
+| `403` | 该模型未开通 / 额度用尽 —— 换个模型 | [模型未开通](https://macdecloud.com/docs/errors/403-model-not-allowed?utm_source=gh) · [额度用尽](https://macdecloud.com/docs/errors/403-quota-exhausted?utm_source=gh) |
+| `404` | 模型名不存在 —— 要写**完整 ID**(带厂商前缀),只写简称会 404 | [404](https://macdecloud.com/docs/errors/404-model-not-found?utm_source=gh) |
+| `429` | 请求太频繁 / 上游限流 —— 等几秒重试,降低并发 | [429](https://macdecloud.com/docs/errors/429-rate-limited?utm_source=gh) |
+| `400` + `upstream provider rejected` | 该模型不支持这类请求 —— 多半是不支持工具调用 | [工具调用](https://macdecloud.com/docs/errors/400-tools-not-supported?utm_source=gh) |
+| `400` 端点不匹配 | 图像 / 视频类模型发错了端点 | [端点不匹配](https://macdecloud.com/docs/errors/400-model-endpoint-mismatch?utm_source=gh) |
+| `502` / `504` | 上游侧的问题 —— 隔几秒重试;持续出现请联系客服 | [502](https://macdecloud.com/docs/errors/502-upstream-model-missing?utm_source=gh) · [504](https://macdecloud.com/docs/errors/504-upstream-timeout?utm_source=gh) |
+| 返回 `200` 但内容为空 | 请求通了、答案没出来 | [200 空内容](https://macdecloud.com/docs/errors/200-empty-content?utm_source=gh) |
 
-> 更多说明:**https://macdecloud.com/docs/errors**
+> 更多说明:**https://macdecloud.com/docs/errors?utm_source=gh**
 
 ## 支持
 
-- 📖 文档:https://macdecloud.com/docs
+- 📖 文档:https://macdecloud.com/docs?utm_source=gh
 - 💬 Telegram 客服
 - 🐛 问题提到本仓 Issues
 
