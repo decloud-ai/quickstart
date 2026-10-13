@@ -132,7 +132,7 @@ your client (Claude Code / Codex / Cherry Studio / your own code)
 
 ## Get started
 
-[![Get started](https://img.shields.io/badge/Get%20started-macdecloud.com-245e43?style=for-the-badge)](https://macdecloud.com/?utm_source=gh) [![All docs](https://img.shields.io/badge/Docs-All%20pages-192b25?style=for-the-badge&logo=github)](https://github.com/decloud-ai/.github/blob/main/DOCS.md)
+[![Get started](https://img.shields.io/badge/Get%20started-245e43?style=for-the-badge&logo=googlechrome&logoColor=white)](https://macdecloud.com/?utm_source=gh) [![All docs](https://img.shields.io/badge/All%20docs-192b25?style=for-the-badge&logo=github&logoColor=white)](https://github.com/decloud-ai/.github/blob/main/DOCS.md) [![Email](https://img.shields.io/badge/Email-245e43?style=for-the-badge&logo=gmail&logoColor=white)](mailto:globaldecloud@gmail.com)
 
 Sign up → grab a key → change two things → make your first call.
 
