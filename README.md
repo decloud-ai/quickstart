@@ -1,26 +1,25 @@
-<p align="right"><a href="README.en.md">English</a> | <strong>简体中文</strong></p>
+<p align="right"><a href="README.en.md">English</a> · <b>简体中文</b></p>
 
-# deCloud · 快速接入
+<div align="center">
 
-**一个 API Key 调用全球顶级 AI 模型** —— 对话、图像、视频、语音、转写、嵌入、重排七类模型,
-对外统一 OpenAI 兼容协议;原有代码只改「地址 + Key」两处。
+<img src="https://github.com/decloud-ai/.github/raw/main/assets/logo.png" width="48" alt="deCloud">
 
-> One API key to every frontier AI model.
-> Models are the variable. The endpoint is the constant.
+## deCloud · 快速接入
 
-![OpenAI compatible](https://img.shields.io/badge/OpenAI-compatible-245e43?style=flat-square)
-![Anthropic Messages](https://img.shields.io/badge/Anthropic-Messages-245e43?style=flat-square)
-![OpenAI Responses](https://img.shields.io/badge/OpenAI-Responses-245e43?style=flat-square)
+**一个 API Key 调用全球顶级 AI 模型**<br>
+<sub>One API key to every frontier AI model · Models are the variable. The endpoint is the constant.</sub>
 
-📖 完整文档:**https://macdecloud.com/docs?utm_source=gh** · 🌐 官网:https://macdecloud.com?utm_source=gh
+![OpenAI compatible][s-1] ![Anthropic Messages][s-2] ![OpenAI Responses][s-3]
 
-[English](README.en.md) | 简体中文
+[![Website](https://img.shields.io/badge/Website-245e43?style=for-the-badge&logo=googlechrome&logoColor=white)](https://macdecloud.com/?utm_source=gh) [![Docs](https://img.shields.io/badge/Docs-245e43?style=for-the-badge&logo=readthedocs&logoColor=white)](https://macdecloud.com/docs?utm_source=gh) [![YouTube](https://img.shields.io/badge/YouTube-a13a2c?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@decloud-AI) [![Support](https://img.shields.io/badge/Support-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/DeCloud_CS)
+
+</div>
 
 ---
 
-## 快速开始
+### `01` 快速开始
 
-**① 写代码(OpenAI SDK)** —— 先装一次,再改两处:
+`写代码(OpenAI SDK)` <sub>先装一次,再改两处</sub>
 
 ```bash
 pip install openai
@@ -30,18 +29,19 @@ pip install openai
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://macdecloud.com/v1",   # ← 改这里
-    api_key="dcld-sk-...",                  # ← 和这里
+    base_url="https://macdecloud.com/v1",   # 改这里
+    api_key="dcld-sk-...",                  # 和这里
 )
 r = client.chat.completions.create(
-    model="deepseek/deepseek-chat",       # 完整 ID:厂商标识/模型名(以模型页为准)
+    model="deepseek/deepseek-chat",         # 完整 ID:厂商标识/模型名(以模型页为准)
     messages=[{"role": "user", "content": "hello"}],
 )
 print(r.choices[0].message.content)
 ```
 
-## 客户端怎么填
-**② 图形客户端**(NextChat / Chatbox / LobeChat / Open WebUI / Cherry Studio 等)—— 新加一个服务商:
+---
+
+`图形客户端` <sub>NextChat / Chatbox / LobeChat / Open WebUI / Cherry Studio —— 新加一个服务商</sub>
 
 | 字段 | 填什么 |
 |---|---|
@@ -51,9 +51,11 @@ print(r.choices[0].message.content)
 | 模型名 | 完整 ID |
 
 > [!WARNING]
-> **别改客户端自带的「OpenAI」那一项** —— 它的地址固定是 `api.openai.com`,会报"密钥不正确"。要**新加**一个自定义服务商。
+> 别改客户端自带的「OpenAI」那一项 —— 它的地址固定是 `api.openai.com`,会报"密钥不正确"。要新加一个自定义服务商。
 
-**③ 命令行 Claude Code**:
+---
+
+`Claude Code`
 
 ```bash
 export ANTHROPIC_BASE_URL="https://macdecloud.com"   # 注意:不带 /v1
@@ -61,25 +63,49 @@ export ANTHROPIC_AUTH_TOKEN="dcld-sk-..."
 export ANTHROPIC_MODEL="<完整模型 ID>"
 ```
 
-**④ 命令行 Codex**:走 `/v1/responses`,配置写在 `config.toml` 的 provider 里。
+<sub>想用别名代替完整 ID,先在控制台 API Keys → Model aliases 建一个;别用 `opus`/`sonnet`/`haiku` 这类保留短名。</sub>
 
-**怎么算通了** —— 照上面换掉两处再调用一次:**返回里带 `content` 就说明通了**。
+---
 
-## 能用什么
+`Codex` <sub>走 `/v1/responses`,配置写进 `~/.codex/config.toml`</sub>
 
-| | |
+```toml
+model = "decloud-codex"
+model_provider = "decloud"
+
+[model_providers.decloud]
+name = "deCloud"
+base_url = "https://macdecloud.com/v1"
+env_key = "DECLOUD_API_KEY"
+wire_api = "responses"
+```
+
+```bash
+export DECLOUD_API_KEY='dcld-sk-...'
+codex
+```
+
+<sub>怎么算通了:照上面换掉两处再调用一次 —— 返回里带 `content` 就说明通了。</sub>
+
+---
+
+### `02` 能用什么
+
+| 项 | 说明 |
 |---|---|
 | 七类模型 | 对话 · 图像 · 视频 · 语音 · 转写 · 嵌入 · 重排 |
 | 三种协议 | `/v1/chat/completions`(OpenAI 兼容) · `/v1/messages`(Anthropic) · `/v1/responses`(Responses) |
 | 其它端点 | `/v1/images/generations` · `/v1/videos` · `/v1/audio/speech` · `/v1/audio/transcriptions` |
-| 上游可核 | 目录同时收录直连厂商与聚合目录来源,**每个模型的上游在模型页逐个标注** |
+| 上游可核 | 目录同时收录直连厂商与聚合目录来源,每个模型的上游在模型页逐个标注 |
 | Key 范围 | 每把 Key 可限定可用模型,模型列表随 Key 权限过滤 |
-| 用量 | 控制台用量页逐笔可核,**支持表格导出** |
+| 用量 | 控制台用量页逐笔可核,支持表格导出 |
 
 > [!WARNING]
-> 视频是**异步**的:提交返回 `202` + `polling_url`;端点是 `/v1/videos`(**不是** `/v1/video/generations`)。
+> 视频是异步的:提交返回 `202` + `polling_url`;端点是 `/v1/videos`(不是 `/v1/video/generations`)。
 
-## 报错对照
+---
+
+### `03` 报错对照
 
 每个状态码都有一页文档,点右边那列直接跳:
 
@@ -88,45 +114,43 @@ export ANTHROPIC_MODEL="<完整模型 ID>"
 | `401` | Key 无效 —— 检查多空格、`dcld-sk-` 前缀是否完整、是否已被轮换 | [401](https://macdecloud.com/docs/errors/401-invalid-key?utm_source=gh) |
 | `402` | 余额不足 —— 余额为 0 时免费模型也会被拒 | [402](https://macdecloud.com/docs/errors/402-insufficient-balance?utm_source=gh) |
 | `403` | 该模型未开通 / 额度用尽 —— 换个模型 | [模型未开通](https://macdecloud.com/docs/errors/403-model-not-allowed?utm_source=gh) · [额度用尽](https://macdecloud.com/docs/errors/403-quota-exhausted?utm_source=gh) |
-| `404` | 模型名不存在 —— 要写**完整 ID**(带厂商前缀),只写简称会 404 | [404](https://macdecloud.com/docs/errors/404-model-not-found?utm_source=gh) |
+| `404` | 模型名不存在 —— 要写完整 ID(带厂商前缀),只写简称会 404 | [404](https://macdecloud.com/docs/errors/404-model-not-found?utm_source=gh) |
 | `429` | 请求太频繁 / 上游限流 —— 等几秒重试,降低并发 | [429](https://macdecloud.com/docs/errors/429-rate-limited?utm_source=gh) |
 | `400` + `upstream provider rejected` | 该模型不支持这类请求 —— 多半是不支持工具调用 | [工具调用](https://macdecloud.com/docs/errors/400-tools-not-supported?utm_source=gh) |
 | `400` 端点不匹配 | 图像 / 视频类模型发错了端点 | [端点不匹配](https://macdecloud.com/docs/errors/400-model-endpoint-mismatch?utm_source=gh) |
 | `502` / `504` | 上游侧的问题 —— 隔几秒重试;持续出现请联系客服 | [502](https://macdecloud.com/docs/errors/502-upstream-model-missing?utm_source=gh) · [504](https://macdecloud.com/docs/errors/504-upstream-timeout?utm_source=gh) |
 | 返回 `200` 但内容为空 | 请求通了、答案没出来 | [200 空内容](https://macdecloud.com/docs/errors/200-empty-content?utm_source=gh) |
 
-> 更多说明:**https://macdecloud.com/docs/errors?utm_source=gh**
+完整排障说明见[文档 · 错误码](https://macdecloud.com/docs/errors?utm_source=gh)。
 
-## 计费怎么算
+---
 
-1. **统一按量** —— 充一次余额,按 token 用量扣,无包月档位;
-2. **按 token 计价** —— 输入输出分别计价,单价见模型页;
-3. **明细可核** —— 控制台用量页逐笔可核,支持表格导出;
-4. **失败不计费** —— **上游出错导致的失败**不扣余额;
-5. **余额为 0 报 402** —— 直接报错,不会静默失败。
+### `04` 计费怎么算
+
+1. 统一按量 —— 充一次余额,按 token 用量扣,无包月档位;
+2. 按 token 计价 —— 输入输出分别计价,单价见模型页;
+3. 明细可核 —— 控制台用量页逐笔可核,支持表格导出;
+4. 失败不计费 —— 上游出错导致的失败不扣余额;
+5. 余额为 0 报 402 —— 直接报错,不会静默失败。
 
 几点说清:
 
-- 聊天**按用量结算**,不是按 token 上限预扣 —— 所以**余额可能出现负数**;
-- 视频**相反**:提交时**预留**、完成才**结算**,预留不够直接拒(402);
-- 第 4 条的边界是「**上游出错导致的失败**」—— **请求中断不能一律解释为免费**;
-- 余额是**预付款记账单位**,不可提现、不可转让;
+- 聊天按用量结算,不是按 token 上限预扣 —— 所以余额可能出现负数;
+- 视频相反:提交时预留、完成才结算,预留不够直接拒(402);
+- 第 4 条的边界是「上游出错导致的失败」—— 请求中断不能一律解释为免费;
+- 余额是预付款记账单位,不可提现、不可转让;
 - 可申请免费额度。
 
-## 支持
+---
 
-- 📖 文档:https://macdecloud.com/docs?utm_source=gh
-- 💬 Telegram 客服
-- 🐛 问题提到本仓 Issues
-
-## 为什么用它
+### `05` 为什么用它
 
 | 你会遇到的 | deCloud 的做法 |
 |---|---|
-| 换个模型就要重测 | **接入与模型解耦** —— 接入写一次,之后模型换代与它无关 |
-| 各家接口都不一样 | **统一协议** —— OpenAI 兼容 + Anthropic + Responses |
-| 每接一家就多一个 Key | **目录聚合** —— 直连与聚合目录收在一处,来源逐个标注 |
-| 月底对账要登多个后台 | **权限与用量合一** —— 权限、用量、明细逐笔可核 |
+| 换个模型就要重测 | 接入与模型解耦 —— 接入写一次,之后模型换代与它无关 |
+| 各家接口都不一样 | 统一协议 —— OpenAI 兼容 + Anthropic + Responses |
+| 每接一家就多一个 Key | 目录聚合 —— 直连与聚合目录收在一处,来源逐个标注 |
+| 月底对账要登多个后台 | 权限与用量合一 —— 权限、用量、明细逐笔可核 |
 
 ```text
 客户端(Claude Code / Codex / Cherry Studio / 你的代码)
@@ -135,12 +159,32 @@ export ANTHROPIC_MODEL="<完整模型 ID>"
    deCloud ── /v1/chat/completions · /v1/messages · /v1/responses ──▶ 上游模型厂商
 ```
 
-## 开始使用
+---
+
+### `06` 支持
+
+- 文档:<https://macdecloud.com/docs?utm_source=gh>
+- Telegram 客服:<https://t.me/DeCloud_CS>
+- 报错、建议、文档问题:<https://github.com/decloud-ai/quickstart/issues>
+
+---
+
+### `07` 开始使用
+
+<div align="center">
 
 [![Get started](https://img.shields.io/badge/Get%20started-245e43?style=for-the-badge&logo=googlechrome&logoColor=white)](https://macdecloud.com/?utm_source=gh) [![All docs](https://img.shields.io/badge/All%20docs-192b25?style=for-the-badge&logo=github&logoColor=white)](https://github.com/decloud-ai/.github/blob/main/DOCS.md) [![Email](https://img.shields.io/badge/Email-245e43?style=for-the-badge&logo=gmail&logoColor=white)](mailto:globaldecloud@gmail.com)
 
-连接即登录 → 创建 API Key → 填进工具 → 跑通第一次调用。
+<sub>连接即登录 → 创建 API Key → 填进工具 → 跑通第一次调用。</sub>
 
-## License
+</div>
+
+---
+
+### License
 
 MIT —— 见 [LICENSE](LICENSE)。示例代码可自由取用。
+
+[s-1]: https://img.shields.io/badge/OpenAI-compatible-192b25?style=flat-square
+[s-2]: https://img.shields.io/badge/Anthropic-Messages-192b25?style=flat-square
+[s-3]: https://img.shields.io/badge/OpenAI-Responses-192b25?style=flat-square
